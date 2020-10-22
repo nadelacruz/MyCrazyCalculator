@@ -68,6 +68,9 @@ public class MyCrazyCalculator {
         return toReturn;
     }
 
+    /** Converts a infix equation to a postfix equation.
+     * @param exp the expression to convert.
+     * @return the converted equation. */
     public String InfixToPostfix(String exp) {
         StringBuilder result = new StringBuilder();
         int foundIndex = 0;
@@ -95,15 +98,56 @@ public class MyCrazyCalculator {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                while(!(this.stack.isEmpty()) && this.HasHigherPrecedence(tempStr, tempExp)) {
+                while(!(this.stack.isEmpty()) && !(tempStr.equals("(")) && this.HasHigherPrecedence(tempStr, tempExp)) {
                     try {
                         result.append(this.stack.pop()).append(" ");
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    try {
+                        if (!(this.stack.isEmpty())) {
+                            tempStr = this.stack.peek();
+                        }
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
                 }
                 try {
                     this.stack.push(tempExp);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else if (tempExp.equals("(")) {
+                try {
+                    this.stack.push(tempExp);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else if (tempExp.equals(")")) {
+                String tempStr = "";
+                try {
+                    if (!(this.stack.isEmpty())) {
+                        tempStr = this.stack.peek();
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                while(!(this.stack.isEmpty()) && !(tempStr.equals("("))) {
+                    try {
+                        result.append(this.stack.pop()).append(" ");
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    try {
+                        if (!(this.stack.isEmpty())) {
+                            tempStr = this.stack.peek();
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+                try {
+                    this.stack.pop();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -144,7 +188,7 @@ public class MyCrazyCalculator {
     /** Checks whether the string is an operand.
      * @return true if operand, false if not. */
     public boolean isOperand(String exp) {
-        return !this.isOperator(exp);
+        return !this.isOperator(exp) && !(exp.equals("(")) && !(exp.equals(")"));
     }
 
     /** Performs the calculation of the string operator and the operands.
@@ -177,13 +221,6 @@ public class MyCrazyCalculator {
         }
 
         return x.toString();
-    }
-
-    /** Checks if expression is an open parenthesis.
-     * @param exp expression to be checked.
-     * @return true if exp is an open parenthesis, false if not.*/
-    public boolean IsOpeningParenthesis(String exp) {
-        return exp.equals("(");
     }
 
     /** Checks if exp1 has higher operator precedence than exp2.
