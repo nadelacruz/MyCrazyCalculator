@@ -4,6 +4,23 @@ public class MyCrazyCalculatorTester {
      * @param args Unused. */
     public static void main(String[] args) {
         MyCrazyCalculator crazyCalc = new MyCrazyCalculator(9);
-        System.out.println(crazyCalc.InfixToPostfix("( ( A + B ) * C - D ) * E ^ 2 + ( A + B )"));
+
+//        VALID INFIX EXPRESSIONS
+//        System.out.println(crazyCalc.infixChecker("( ( 1 + 2 ) * 3 - 4 ) * 5 ^ 2 + ( 6 + 7 )"));
+//        System.out.println(crazyCalc.infixChecker("( 4 + 5 ) * 6"));
+//        System.out.println(crazyCalc.infixChecker("3 + ( 4 * 5 )"));
+//        System.out.println(crazyCalc.infixChecker("3 ^ 2"));
+
+//        INVALID INFIX EXPRESSIONS
+//        System.out.println(crazyCalc.infixChecker("( ( A + B ) * C - D ) * E ^ F + ( G + H )"));
+//        System.out.println(crazyCalc.infixChecker("( + )"));
+//        System.out.println(crazyCalc.infixChecker("5 +"));
+//        System.out.println(crazyCalc.infixChecker("5 ( + 7 )"));
+//        System.out.println(crazyCalc.infixChecker("( 5 + 6 ) )"));
+//        System.out.println(crazyCalc.infixChecker("50 ( 1 )"));
+//        System.out.println(crazyCalc.infixChecker("( 5 + ) 7"));
+//        System.out.println(crazyCalc.infixChecker("5 + +"));
+//        System.out.println(crazyCalc.infixChecker("5+6"));
+//        System.out.println(crazyCalc.infixChecker("( 1+ 7 )"));
     }
 }
