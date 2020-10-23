@@ -4,8 +4,11 @@
  * @version 1.0
  * @since 10-22-2020 */
 public class MyCrazyCalculator {
-    private CalcStack stack; // Holds the data of the class.
-    private final int length; // length of the stack.
+    /** Holds the data of the class. */
+    private CalcStack stack;
+
+    /** Length of the stack. */
+    private final int length;
 
     /** Initializes the stack with size length.
      * @param length size of the stack. */

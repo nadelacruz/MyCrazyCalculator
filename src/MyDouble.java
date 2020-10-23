@@ -2,7 +2,8 @@
  * @author Nico Angelo L. Dela Cruz
  * @version 1.0 */
 public class MyDouble {
-    private double val; //Value of MyDouble.
+    /** Value of MyDouble. */
+    private double val;
 
     /** Sets the value of MyDouble to 0. */
     public MyDouble() {
