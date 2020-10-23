@@ -5,7 +5,7 @@
  * @since 10-22-2020 */
 public class MyCrazyCalculator {
     private CalcStack stack; // Holds the data of the class.
-    private int length; // length of the stack.
+    private final int length; // length of the stack.
 
     /** Initializes the stack with size length.
      * @param length size of the stack. */
@@ -14,7 +14,19 @@ public class MyCrazyCalculator {
         this.stack = new CalcStack(this.length);
     }
 
-
+    /** Evaluates the string expression and outputs the numeric value of string expression.
+     * @param expression expression that will undergo evaluation.
+     * @return the numeric result after evaluating expression.*/
+    public double evaluate(String expression) {
+        double finalOperand = -1;
+        if (this.infixChecker(expression)) {
+            finalOperand = Double.parseDouble(this.evaluatePostfix(this.InfixToPostfix(expression)));
+        } else {
+            System.out.println("Error. Invalid infix expression detected. See MyCrazyCalculatorTester for the list of valid and invalid infix expressions.");
+            System.exit(0);
+        }
+        return finalOperand;
+    }
 
     /** Checks if infix expression is valid or invalid.
      * @param exp the expression to be checked.
