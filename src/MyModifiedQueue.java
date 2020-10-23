@@ -19,7 +19,7 @@ public class MyModifiedQueue {
     /** Inserts value n at the front of the queue.
      * @param n value to insert to the front of the queue.
      * @throws QueueFullException when called on a full queue. */
-    public void enqueue(String n) throws QueueFullException{
+    public void enqueue(String n) throws QueueFullException {
         try {
             while (!(this.stack2.isEmpty())) {
                 this.stack1.push(this.stack2.pop());
@@ -48,7 +48,7 @@ public class MyModifiedQueue {
 
     /** @return the item in front of the queue.
      * @throws QueueEmptyException when called on an empty queue. */
-    public String peek() throws QueueEmptyException{
+    public String peek() throws QueueEmptyException {
         String toReturn;
         try {
             while (!(this.stack1.isEmpty())) {
