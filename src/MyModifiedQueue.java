@@ -1,5 +1,4 @@
-/** <h1>Activity 5.2 (Queues over Stacks)</h1>
- * <p>Objectives: To implement a Queue using a stack as home data structure.</p>*
+/** MyQueue Implementation that accepts Strings.
  * @author Nico Angelo L. Dela Cruz
  * @version 1.0
  * @since 10-22-2020 */

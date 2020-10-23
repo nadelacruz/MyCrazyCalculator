@@ -1,4 +1,4 @@
-/** MyStack Implementation.
+/** MyStack Implementation that accepts Strings.
  * @author Nico Angelo L. Dela Cruz
  * @version 1.0
  * @since 10-20-2020 */
