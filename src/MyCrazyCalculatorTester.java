@@ -28,7 +28,7 @@ public class MyCrazyCalculatorTester {
         System.out.println(crazyCalc.evaluate("( ( 1 + 2 ) * 3 - 4 ) * 5 ^ 2 + ( 6 + 7 )"));
         System.out.println(crazyCalc.evaluate("( 5 + 5 ) * 5"));
 
-        System.out.println(crazyCalc.evaluate("(5+5)*5")); // Error because no spaces in between every operand, operator, and parentheses.
+        System.out.println(crazyCalc.evaluate("(5+5)*5")); // Error because the expression has no spaces in between every operand, operator, and parentheses.
 
     }
 }
