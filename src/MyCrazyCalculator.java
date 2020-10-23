@@ -4,13 +4,17 @@
  * @version 1.0
  * @since 10-22-2020 */
 public class MyCrazyCalculator {
-    private final MyModifiedStack stack; // Holds the data of the class.
+    private CalcStack stack; // Holds the data of the class.
+    private int length; // length of the stack.
 
     /** Initializes the stack with size length.
      * @param length size of the stack. */
     public MyCrazyCalculator(int length) {
-        this.stack = new MyModifiedStack(length);
+        this.length = length;
+        this.stack = new CalcStack(this.length);
     }
+
+
 
     /** Checks if infix expression is valid or invalid.
      * @param exp the expression to be checked.
@@ -97,6 +101,8 @@ public class MyCrazyCalculator {
     /** Evaluates postfix expressions.
      * @param exp expression to be evaluated. */
     public String evaluatePostfix(String exp) {
+        this.stack = new CalcStack(this.length);
+
         String result;
         String toReturn = "";
         int foundIndex = 0;
@@ -154,6 +160,8 @@ public class MyCrazyCalculator {
      * @param exp the expression to convert.
      * @return the converted equation. */
     public String InfixToPostfix(String exp) {
+        this.stack = new CalcStack(this.length);
+
         StringBuilder result = new StringBuilder();
         int foundIndex = 0;
         int counter = 0;
@@ -258,6 +266,8 @@ public class MyCrazyCalculator {
             }
         }
 
+        result.deleteCharAt(result.length() - 1);
+
         return result.toString();
     }
 
@@ -278,8 +288,8 @@ public class MyCrazyCalculator {
      * @param operand1 the first operand.
      * @param operand2 the second operand. */
     public String perform(String operator, String operand1, String operand2) {
-        MyInteger x = new MyInteger(Integer.parseInt(operand1));
-        MyInteger y = new MyInteger(Integer.parseInt(operand2));
+        MyDouble x = new MyDouble(Double.parseDouble(operand1));
+        MyDouble y = new MyDouble(Double.parseDouble(operand2));
 
         switch (operator) {
             case "+":
