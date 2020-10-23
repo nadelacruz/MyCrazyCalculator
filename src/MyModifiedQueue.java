@@ -61,6 +61,30 @@ public class MyModifiedQueue {
         return toReturn;
     }
 
+    /**@return true if queue is full, false if not.*/
+    public boolean isFull() {
+        try {
+            while (!(this.stack1.isEmpty())) {
+                this.stack2.push(this.stack1.pop());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return this.stack2.isFull();
+    }
+
+    /**@return true if queue is empty, false if not.*/
+    public boolean isEmpty() {
+        try {
+            while (!(this.stack1.isEmpty())) {
+                this.stack2.push(this.stack1.pop());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return this.stack2.isEmpty();
+    }
+
     /** Converts the queue into a string.*/
     @Override
     public String toString() {
