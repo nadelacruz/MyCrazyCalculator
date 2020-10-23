@@ -3,9 +3,14 @@
  * @version 1.0
  * @since 10-20-2020 */
 public class MyModifiedStack {
-    private final String[] data; // Holds the data of the stack.
-    private final int max; // Holds the maximum value of the stack.
-    private int top; // Holds the top value of the stack.
+    /** Holds the data of the stack. */
+    private final String[] data;
+
+    /** Holds the maximum value of the stack. */
+    private final int max;
+
+    /** Holds the top value of the stack. */
+    private int top;
 
     /** Initializes MyStack with an initialized array with size size. Sets the default values of variables this.max and this.top.
      * @param size the size for the stack.*/

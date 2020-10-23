@@ -4,8 +4,11 @@
  * @version 1.0
  * @since 10-22-2020 */
 public class MyModifiedQueue {
-    private final MyModifiedStack stack1; // Contains the data of the queue.
-    private final MyModifiedStack stack2; // Contains the data of the queue.
+    /** Contains the data of the queue. */
+    private final MyModifiedStack stack1;
+
+    /** Contains the data of the queue. */
+    private final MyModifiedStack stack2;
 
     /** Initializes the MyQueue to support up to size data items..
      * @param size size of the queue. */
