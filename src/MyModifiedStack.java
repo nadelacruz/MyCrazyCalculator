@@ -2,14 +2,14 @@
  * @author Nico Angelo L. Dela Cruz
  * @version 1.0
  * @since 10-20-2020 */
-public class MyStack {
+public class MyModifiedStack {
     private final String[] data; // Holds the data of the stack.
     private final int max; // Holds the maximum value of the stack.
     private int top; // Holds the top value of the stack.
 
     /** Initializes MyStack with an initialized array with size size. Sets the default values of variables this.max and this.top.
      * @param size the size for the stack.*/
-    public MyStack(int size) {
+    public MyModifiedStack(int size) {
         this.max = size;
         this.data = new String[this.max];
         this.top = -1;

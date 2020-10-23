@@ -4,12 +4,12 @@
  * @version 1.0
  * @since 10-22-2020 */
 public class MyCrazyCalculator {
-    private final MyStack stack; // Holds the data of the class.
+    private final MyModifiedStack stack; // Holds the data of the class.
 
     /** Initializes the stack with size length.
      * @param length size of the stack. */
     public MyCrazyCalculator(int length) {
-        this.stack = new MyStack(length);
+        this.stack = new MyModifiedStack(length);
     }
 
     /** Checks if infix expression is valid or invalid.
