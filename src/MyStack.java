@@ -51,7 +51,12 @@ public class MyStack {
         }
     }
 
-    /** @return true if the stack is empty, false if otherwise. */
+    /**@return true if stack is full, false if not.*/
+    public boolean isFull() {
+        return this.top == this.max - 1;
+    }
+
+    /**@return true if stack is empty, false if not.*/
     public boolean isEmpty() {
         return this.top == -1;
     }
