@@ -114,7 +114,8 @@ public class MyCrazyCalculator {
     }
 
     /** Evaluates postfix expressions.
-     * @param exp expression to be evaluated. */
+     * @param exp expression to be evaluated.
+     * @return the string equivalent of the evaluated expression. */
     public String evaluatePostfix(String exp) {
         this.stack = new CalcStack(this.length);
 
@@ -287,12 +288,14 @@ public class MyCrazyCalculator {
     }
 
     /** Checks whether the string is an operator.
+     * @param exp the expression to be checked.
      * @return true if operator, false if not. */
     public boolean isOperator(String exp) {
         return exp.equals("+") || exp.equals("-") || exp.equals("*") || exp.equals("/") || exp.equals("^") || exp.equals("%");
     }
 
     /** Checks whether the string is an operand.
+     * @param exp the expression to be checked.
      * @return true if operand, false if not. */
     public boolean isOperand(String exp) {
         return !this.isOperator(exp) && !(exp.equals("(")) && !(exp.equals(")"));
@@ -301,7 +304,8 @@ public class MyCrazyCalculator {
     /** Performs the calculation of the string operator and the operands.
      * @param operator the operator.
      * @param operand1 the first operand.
-     * @param operand2 the second operand. */
+     * @param operand2 the second operand.
+     * @return the evaluated expression. */
     public String perform(String operator, String operand1, String operand2) {
         MyDouble x = new MyDouble(Double.parseDouble(operand1));
         MyDouble y = new MyDouble(Double.parseDouble(operand2));
