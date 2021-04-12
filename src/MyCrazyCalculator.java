@@ -22,7 +22,7 @@ public class MyCrazyCalculator {
      * @return the numeric result after evaluating expression.*/
     public double evaluate(String expression) {
         double finalOperand = -1;
-        if (this.infixChecker(expression)) {
+        if (InfixChecker.checkInfix(expression)) {
             finalOperand = Double.parseDouble(this.evaluatePostfix(this.InfixToPostfix(expression)));
         } else {
             System.out.println("Error. Invalid infix expression detected. See MyCrazyCalculatorTester for the list of valid and invalid infix expressions.");
@@ -30,89 +30,7 @@ public class MyCrazyCalculator {
         }
         return finalOperand;
     }
-
-    /** Checks if infix expression is valid or invalid.
-     * @param exp the expression to be checked.
-     * @return true, if the expression is valid, false, if invalid.*/
-    public boolean infixChecker(String exp) {
-        boolean isTrue = true;
-
-        int foundIndex = 0;
-        int counter = 0;
-
-        while (foundIndex != -1) {
-            foundIndex = exp.indexOf(' ', foundIndex + 1);
-            counter++;
-        }
-
-        String[] element = new String[counter];
-        int operatorCount = 0;
-        int operandCount = 0;
-        int openParenthesisCount = 0;
-        int closingParenthesisCount = 0;
-
-        int indexer1 = 0;
-        int indexer2 = exp.indexOf(' ', indexer1);
-
-        for (int i = 0; i < counter && counter > 1; i++) {
-            String tempExp = exp.substring(indexer1, indexer2);
-
-            element[i] = tempExp;
-
-            if (this.isOperator(element[i])) {
-                operatorCount++;
-            } else if (this.isOperand(element[i])) {
-                operandCount++;
-            } else if (element[i].equals("(")) {
-                openParenthesisCount++;
-            } else if (element[i].equals(")")) {
-                closingParenthesisCount++;
-            }
-
-            indexer1 = indexer2 + 1;
-
-            if (i != counter - 2) {
-                indexer2 = exp.indexOf(' ', indexer1);
-            } else {
-                indexer2 = exp.length();
-            }
-        }
-
-        for (int i = 0; i < counter && counter > 1; i++) {
-            if (this.isOperator(element[i])) {
-                if (i == counter - 1) {
-                    isTrue = false;
-                }
-                if (i == 0) {
-                    isTrue = false;
-                }
-                if (counter - 1 - i > 0 && i != 0) {
-                    if (!(this.isOperand(element[i - 1]) || element[i - 1].equals(")")) || !(this.isOperand(element[i + 1]) || element[i + 1].equals("("))) {
-                        isTrue = false;
-                    }
-                    if (element[i-1].equals("(") || element[i+1].equals(")")) {
-                        isTrue = false;
-                    }
-                }
-            }
-            if (this.isOperand(element[i])) {
-                try {
-                    Integer.parseInt(element[i]);
-                } catch (Exception ex) {
-                    isTrue = false;
-                }
-            }
-        }
-
-        if (operatorCount <= 0 || operandCount <= 0) {
-            isTrue = false;
-        } if (openParenthesisCount != closingParenthesisCount) {
-            isTrue = false;
-        }
-
-        return isTrue;
-    }
-
+    
     /** Evaluates postfix expressions.
      * @param exp expression to be evaluated.
      * @return the string equivalent of the evaluated expression. */
@@ -135,13 +53,13 @@ public class MyCrazyCalculator {
         for (int i = 0; i < counter; i++) {
             String tempExp = exp.substring(indexer1, indexer2);
 
-            if (this.isOperand(tempExp)) {
+            if (HelperMethods.isOperand(tempExp)) {
                 try {
                     this.stack.push(tempExp);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-            } else if (this.isOperator(tempExp)) {
+            } else if (HelperMethods.isOperator(tempExp)) {
                 String op2;
                 String op1;
                 try {
@@ -193,9 +111,9 @@ public class MyCrazyCalculator {
         for (int i = 0; i < counter; i++) {
             String tempExp = exp.substring(indexer1, indexer2);
 
-            if (this.isOperand(tempExp)) {
+            if (HelperMethods.isOperand(tempExp)) {
                 result.append(tempExp).append(" ");
-            } else if (this.isOperator(tempExp)) {
+            } else if (HelperMethods.isOperator(tempExp)) {
                 String tempStr = "";
                 try {
                     if (!(this.stack.isEmpty())) {
@@ -286,21 +204,7 @@ public class MyCrazyCalculator {
 
         return result.toString();
     }
-
-    /** Checks whether the string is an operator.
-     * @param exp the expression to be checked.
-     * @return true if operator, false if not. */
-    public boolean isOperator(String exp) {
-        return exp.equals("+") || exp.equals("-") || exp.equals("*") || exp.equals("/") || exp.equals("^") || exp.equals("%");
-    }
-
-    /** Checks whether the string is an operand.
-     * @param exp the expression to be checked.
-     * @return true if operand, false if not. */
-    public boolean isOperand(String exp) {
-        return !this.isOperator(exp) && !(exp.equals("(")) && !(exp.equals(")"));
-    }
-
+    
     /** Performs the calculation of the string operator and the operands.
      * @param operator the operator.
      * @param operand1 the first operand.
