@@ -49,4 +49,37 @@ public class HelperMethods {
         }
         return x >= y;
     }
+
+    /** Performs the calculation of the string operator and the operands.
+     * @param operator the operator.
+     * @param operand1 the first operand.
+     * @param operand2 the second operand.
+     * @return the evaluated expression. */
+    public static String perform(String operator, String operand1, String operand2) {
+        MyDouble x = new MyDouble(Double.parseDouble(operand1));
+        MyDouble y = new MyDouble(Double.parseDouble(operand2));
+
+        switch (operator) {
+            case "+":
+                x.add(y);
+                break;
+            case "-":
+                x.subtract(y);
+                break;
+            case "*":
+                x.multiply(y);
+                break;
+            case "/":
+                x.divide(y);
+                break;
+            case "^":
+                x.raise(y);
+                break;
+            case "%":
+                x.modulo(y);
+                break;
+        }
+
+        return x.toString();
+    }
 }
