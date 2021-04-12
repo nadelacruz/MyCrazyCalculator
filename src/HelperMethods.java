@@ -12,4 +12,41 @@ public class HelperMethods {
     public static boolean isOperand(String exp) {
         return !isOperator(exp) && !(exp.equals("(")) && !(exp.equals(")"));
     }
+
+    /** Checks if exp1 has higher operator precedence than exp2.
+     * @param exp1 first operator.
+     * @param exp2 second operator.
+     * @return true if exp1 has higher precedence than exp 2, false if not. */
+    public static boolean HasHigherPrecedence(String exp1, String exp2) {
+        int x = 0;
+        int y = 0;
+        switch (exp1) {
+            case "^":
+                x = 3;
+                break;
+            case "*":
+            case "/":
+                x = 2;
+                break;
+            case "+":
+            case "-":
+                x = 1;
+                break;
+        }
+
+        switch (exp2) {
+            case "^":
+                y = 3;
+                break;
+            case "*":
+            case "/":
+                y = 2;
+                break;
+            case "+":
+            case "-":
+                y = 1;
+                break;
+        }
+        return x >= y;
+    }
 }
