@@ -1,6 +1,7 @@
 public class InfixToPostfixConverter {
     /** Converts a infix equation to a postfix equation.
      * @param exp the expression to convert.
+     * @param length size of the stack.
      * @return the converted equation. */
     public static String ConvertInfixToPostfix(String exp, int length) {
         CalcStack stack = new CalcStack(length);

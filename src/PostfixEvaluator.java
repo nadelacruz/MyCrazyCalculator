@@ -1,6 +1,7 @@
 public class PostfixEvaluator {
     /** Evaluates postfix expressions.
      * @param exp expression to be evaluated.
+     * @param length size of the stack.
      * @return the string equivalent of the evaluated expression. */
     public static String evaluatePostfix(String exp, int length) {
         CalcStack stack = new CalcStack(length);

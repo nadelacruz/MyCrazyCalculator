@@ -1,4 +1,7 @@
 public class InfixChecker {
+    /** Checks if the inputted string is a valid infix expression.
+     * @param exp expresion to be evaluated.
+     * @return true if the expression is valid, false if the expression is invalid. */
     public static boolean checkInfix(String exp) {
         boolean isTrue = true;
 
