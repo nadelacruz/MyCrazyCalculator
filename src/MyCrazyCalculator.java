@@ -23,7 +23,7 @@ public class MyCrazyCalculator {
     public double evaluate(String expression) {
         double finalOperand = -1;
         if (InfixChecker.checkInfix(expression)) {
-            finalOperand = Double.parseDouble(this.evaluatePostfix(InfixToPostfixConverter.ConvertInfixToPostfix(expression, this.stack, this.length)));
+            finalOperand = Double.parseDouble(this.evaluatePostfix(InfixToPostfixConverter.ConvertInfixToPostfix(expression, this.length)));
         } else {
             System.out.println("Error. Invalid infix expression detected. See MyCrazyCalculatorTester for the list of valid and invalid infix expressions.");
             System.exit(0);
