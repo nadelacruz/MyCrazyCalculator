@@ -82,4 +82,22 @@ public class HelperMethods {
 
         return x.toString();
     }
+
+    /** Reverses a given string with inverted parentheses.
+     * @param str string to be reversed.
+     * @return the reversed string. */
+    public static String stringReverse(String str) {
+        StringBuilder toReturn = new StringBuilder();
+        char[] newExp = str.toCharArray();
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (newExp[i] == '(') {
+                toReturn.append(")");
+            } else if (newExp[i] == ')') {
+                toReturn.append("(");
+            } else {
+                toReturn.append(newExp[i]);
+            }
+        }
+        return toReturn.toString();
+    }
 }
