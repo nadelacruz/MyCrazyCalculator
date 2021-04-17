@@ -1,9 +1,11 @@
-public class PostfixEvaluator {
-    /** Evaluates postfix expressions.
-     * @param exp expression to be evaluated.
-     * @param length size of the stack.
+public class PostfixEvaluator extends ExpressionEvaluator {
+
+    /** Evaluates a postfix expression.
+     * @param exp the expression to be evaluated.
+     * @param length the size of the stack.
      * @return the string equivalent of the evaluated expression. */
-    public static String evaluatePostfix(String exp, int length) {
+    @Override
+    public String evaluate(String exp, int length) {
         CalcStack stack = new CalcStack(length);
 
         String result;
