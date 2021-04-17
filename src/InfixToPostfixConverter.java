@@ -1,9 +1,10 @@
-public class InfixToPostfixConverter {
-    /** Converts a infix equation to a postfix equation.
-     * @param exp the expression to convert.
-     * @param length size of the stack.
-     * @return the converted equation. */
-    public static String ConvertInfixToPostfix(String exp, int length) {
+public class InfixToPostfixConverter extends NotationConverter {
+    /** Converts an infix expression to a postfix expression.
+     * @param exp the infix expression to be converted.
+     * @param length the size of the stack.
+     * @return the converted expression. */
+    @Override
+    public String convert(String exp, int length) {
         CalcStack stack = new CalcStack(length);
 
         StringBuilder result = new StringBuilder();
