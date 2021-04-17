@@ -6,11 +6,15 @@
 public class MyCrazyCalculator {
     /** Length of the stack. */
     private final int length;
+    private InfixToPostfixConverter infixToPostfixConverter;
+    private PostfixEvaluator postfixEvaluator;
 
     /** Initializes the stack with size length.
      * @param length size of the stack. */
     public MyCrazyCalculator(int length) {
         this.length = length;
+        this.infixToPostfixConverter = new InfixToPostfixConverter();
+        this.postfixEvaluator = new PostfixEvaluator();
     }
 
     /** Evaluates the string expression and outputs the numeric value of string expression.
@@ -19,7 +23,7 @@ public class MyCrazyCalculator {
     public double evaluate(String expression) {
         double finalOperand = -1;
         if (InfixChecker.checkInfix(expression)) {
-            finalOperand = Double.parseDouble(PostfixEvaluator.evaluatePostfix(InfixToPostfixConverter.ConvertInfixToPostfix(expression, this.length), this.length));
+            finalOperand = Double.parseDouble(postfixEvaluator.evaluate(infixToPostfixConverter.convert(expression, this.length), this.length));
         } else {
             System.out.println("Error. Invalid infix expression detected. See MyCrazyCalculatorTester for the list of valid and invalid infix expressions.");
             System.exit(0);
