@@ -1,4 +1,4 @@
-public class PrefixEvaluator extends ExpressionEvaluator {
+public class PrefixEvaluator implements ExpressionEvaluator {
 
     /** Evaluates a postfix expression.
      * @param exp the expression to be evaluated.
