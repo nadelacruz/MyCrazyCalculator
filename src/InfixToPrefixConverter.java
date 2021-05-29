@@ -1,4 +1,4 @@
-public class InfixToPrefixConverter extends NotationConverter {
+public class InfixToPrefixConverter implements NotationConverter {
     /** Converts an infix expression to a prefix expression.
      * @param exp the infix expression to be converted.
      * @param length the size of the stack.

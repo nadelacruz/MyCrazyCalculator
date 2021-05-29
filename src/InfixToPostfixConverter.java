@@ -1,4 +1,4 @@
-public class InfixToPostfixConverter extends NotationConverter {
+public class InfixToPostfixConverter implements NotationConverter {
     /** Converts an infix expression to a postfix expression.
      * @param exp the infix expression to be converted.
      * @param length the size of the stack.
