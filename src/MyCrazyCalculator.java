@@ -6,8 +6,8 @@
 public class MyCrazyCalculator {
     /** Length of the stack. */
     private final int length;
-    private InfixToPostfixConverter infixToPostfixConverter;
-    private PostfixEvaluator postfixEvaluator;
+    private NotationConverter infixToPostfixConverter;
+    private ExpressionEvaluator postfixEvaluator;
 
     /** Initializes the stack with size length.
      * @param length size of the stack. */
