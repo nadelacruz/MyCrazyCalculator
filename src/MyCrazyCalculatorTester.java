@@ -3,7 +3,7 @@ public class MyCrazyCalculatorTester {
     /** This is the main method which makes use of MyCrazyCalculator class operations.
      * @param args Unused. */
     public static void main(String[] args) {
-        MyCrazyCalculator crazyCalc = new MyCrazyCalculator(10);
+//        MyCrazyCalculator crazyCalc = new MyCrazyCalculator(10);
 
 //        VALID INFIX EXPRESSIONS
 //        System.out.println(crazyCalc.infixChecker("( ( 1 + 2 ) * 3 - 4 ) * 5 ^ 2 + ( 6 + 7 )"));
@@ -23,12 +23,15 @@ public class MyCrazyCalculatorTester {
 //        System.out.println(crazyCalc.infixChecker("5+6"));
 //        System.out.println(crazyCalc.infixChecker("( 1+ 7 )"));
 
-        System.out.println(crazyCalc.evaluate("5 + 5"));
-        System.out.println(crazyCalc.evaluate("( 3 + 5 ) ^ 2"));
-        System.out.println(crazyCalc.evaluate("( ( 1 + 2 ) * 3 - 4 ) * 5 ^ 2 + ( 6 + 7 )"));
-        System.out.println(crazyCalc.evaluate("( 5 + 5 ) * 5"));
+//        System.out.println(crazyCalc.evaluate("5 + 5"));
+//        System.out.println(crazyCalc.evaluate("( 3 + 5 ) ^ 2"));
+//        System.out.println(crazyCalc.evaluate("( ( 1 + 2 ) * 3 - 4 ) * 5 ^ 2 + ( 6 + 7 )"));
+//        System.out.println(crazyCalc.evaluate("( 5 + 5 ) * 5"));
+//
+//        System.out.println(crazyCalc.evaluate("(5+5)*5")); // Error because the expression has no spaces in between every operand, operator, and parentheses.
 
-        System.out.println(crazyCalc.evaluate("(5+5)*5")); // Error because the expression has no spaces in between every operand, operator, and parentheses.
+        Menu menu = new Menu();
+        menu.acceptInput(menu.askInput());
 
     }
 }
